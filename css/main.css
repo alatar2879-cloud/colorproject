@@ -1,0 +1,517 @@
+/* Wireframe layout — белый фон, простые обводки */
+
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+html {
+  font-size: 16px;
+}
+
+body {
+  font-family: Arial, Helvetica, sans-serif;
+  background: #fff;
+  color: #000;
+  min-height: 100vh;
+  line-height: 1.4;
+}
+
+a {
+  color: inherit;
+  text-decoration: none;
+}
+
+img {
+  display: block;
+  max-width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+/* ===== Страница-обёртка ===== */
+.page {
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  max-width: 900px;
+  margin: 0 auto;
+  padding: 1.5rem 1.25rem 2rem;
+}
+
+.page--wide {
+  max-width: 1100px;
+}
+
+.page--reference {
+  max-width: 1200px;
+}
+
+/* ===== Ячейка под логотип (images/logo/logo.png) ===== */
+.logo-slot {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+  min-height: 72px;
+  margin-bottom: 2.5rem;
+}
+
+.logo-img {
+  display: block;
+  max-width: min(100%, 480px);
+  width: auto;
+  height: auto;
+  max-height: 120px;
+  object-fit: contain;
+}
+
+.logo-img.is-hidden {
+  display: none;
+}
+
+.logo-slot--empty {
+  min-height: 100px;
+  max-width: 480px;
+  margin-left: auto;
+  margin-right: auto;
+  border: 1px dashed #999;
+  border-radius: 8px;
+  background: #fff;
+}
+
+/* ===== Главная: кнопки (слева, как блок «Важно») ===== */
+.home-content {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  width: 100%;
+}
+
+.home-nav {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 1.25rem;
+  padding-top: 0.5rem;
+  max-width: 520px;
+  width: 100%;
+}
+
+/* ===== Кнопки (pill) ===== */
+.btn-pill {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  min-width: 220px;
+  padding: 0.65rem 1.5rem;
+  font-family: inherit;
+  font-size: 1rem;
+  font-weight: 400;
+  color: #000;
+  background: #fff;
+  border: 1px solid #000;
+  border-radius: 999px;
+  cursor: pointer;
+  text-align: center;
+  transition: background-color 0.3s ease, color 0.3s ease, transform 0.15s ease, box-shadow 0.15s ease;
+}
+
+.btn-pill:hover {
+  background: #000;
+  color: #fff;
+  box-shadow: 0 2px 0 #000;
+}
+
+.btn-pill:active {
+  transform: scale(0.97);
+  box-shadow: none;
+}
+
+.btn-pill:disabled {
+  opacity: 0.45;
+  cursor: not-allowed;
+  pointer-events: none;
+}
+
+a.btn-pill {
+  display: inline-flex;
+}
+
+/* ===== Блок «Важно» ===== */
+.important-section {
+  margin-top: auto;
+  padding-top: 3rem;
+  max-width: 520px;
+  width: 100%;
+  align-self: flex-start;
+}
+
+.important-label {
+  font-size: 1rem;
+  font-weight: 700;
+  margin-bottom: 0.35rem;
+}
+
+.important-text {
+  font-size: 0.95rem;
+  min-height: 2.8em;
+  transition: opacity 0.5s ease;
+}
+
+.important-text.is-fading {
+  opacity: 0;
+}
+
+/* ===== Кнопка «Назад» ===== */
+.page-footer {
+  margin-top: auto;
+  padding-top: 2.5rem;
+}
+
+.page-footer--actions {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: space-between;
+  gap: 1rem;
+  width: 100%;
+}
+
+.btn-back {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.35rem;
+  padding: 0.5rem 1rem;
+  font-family: inherit;
+  font-size: 0.95rem;
+  color: #000;
+  background: #fff;
+  border: 1px solid #000;
+  border-radius: 999px;
+  cursor: pointer;
+  transition: background-color 0.3s ease, color 0.3s ease, transform 0.15s ease;
+}
+
+.btn-back::before {
+  content: "←";
+}
+
+.btn-back:hover {
+  background: #000;
+  color: #fff;
+}
+
+.btn-back:active {
+  transform: scale(0.97);
+}
+
+/* ===== Страница «Своё сочетание» ===== */
+.custom-page {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  flex: 1;
+  gap: 2rem;
+}
+
+.custom-selectors {
+  display: flex;
+  flex-wrap: nowrap;
+  justify-content: center;
+  align-items: flex-end;
+  gap: 1rem 1.5rem;
+  width: 100%;
+  max-width: 560px;
+  margin: 0 auto;
+}
+
+.selector-wrap {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 0.35rem;
+}
+
+.selector-optional {
+  font-size: 0.8rem;
+  color: #333;
+}
+
+/* ===== Dropdown (select) ===== */
+.select-pill {
+  appearance: none;
+  min-width: 120px;
+  padding: 0.55rem 2rem 0.55rem 1rem;
+  font-family: inherit;
+  font-size: 0.95rem;
+  color: #000;
+  background: #fff url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='8' viewBox='0 0 12 8'%3E%3Cpath fill='%23000' d='M1 1l5 5 5-5'/%3E%3C/svg%3E") no-repeat right 0.75rem center;
+  border: 1px solid #000;
+  border-radius: 999px;
+  cursor: pointer;
+}
+
+.select-pill:focus {
+  outline: 2px solid #000;
+  outline-offset: 2px;
+}
+
+.select-pill--colors {
+  min-width: 160px;
+  font-weight: 600;
+}
+
+.select-pill--has-color {
+  font-weight: 600;
+}
+
+.select-pill option {
+  font-weight: 600;
+  background: #fff;
+  color: #000;
+}
+
+/* ===== Заголовок сочетания ===== */
+.combo-title {
+  text-align: center;
+  font-size: 1.25rem;
+  font-weight: 400;
+  margin-bottom: 1.25rem;
+}
+
+/* ===== Сетка 3×3 ===== */
+.grid-3x3 {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 0.75rem;
+  width: 100%;
+  max-width: 720px;
+  margin: 0 auto;
+}
+
+.grid-cell {
+  aspect-ratio: 1;
+  border: 1px solid #000;
+  background: #fff;
+  overflow: hidden;
+}
+
+.grid-cell img {
+  width: 100%;
+  height: 100%;
+}
+
+/* Пустой слот под фото (если нет файла) */
+.grid-cell--empty {
+  background: #fafafa;
+}
+
+/* ===== Готовые сочетания: подпись под фото ===== */
+.grid-item {
+  display: flex;
+  flex-direction: column;
+  gap: 0.35rem;
+}
+
+.grid-item-label {
+  font-size: 0.8rem;
+  text-align: center;
+  line-height: 1.3;
+}
+
+.combinations-grid {
+  width: 100%;
+  max-width: 720px;
+  margin: 0 auto;
+}
+
+/* ===== Справка о цветах ===== */
+.reference-main {
+  flex: 1;
+  min-width: 0;
+  width: 100%;
+}
+
+.ref-color-cell {
+  padding: 0.45rem;
+  display: flex;
+  align-items: stretch;
+  justify-content: center;
+  background: #fff;
+}
+
+.ref-swatch-strip {
+  width: 100%;
+  height: 100%;
+  display: flex;
+  gap: 0.35rem;
+  align-items: stretch;
+}
+
+.ref-swatch {
+  flex: 1;
+  min-width: 0;
+  border: 1px solid #000;
+  border-radius: 0.5rem;
+  background: #d9d9d9;
+}
+
+.reference-main--only {
+  max-width: 720px;
+}
+
+.reference-top-select {
+  margin-bottom: 1rem;
+  display: flex;
+  justify-content: flex-start;
+}
+
+.color-description {
+  font-size: 0.95rem;
+  margin-bottom: 1rem;
+  min-height: 2em;
+}
+
+.page--reference .color-description {
+  font-size: 0.9rem;
+  margin-bottom: 0.65rem;
+  min-height: auto;
+}
+
+.page--reference .reference-top-select {
+  margin-bottom: 0.65rem;
+}
+
+/* Сетка 3×3 в справке — те же ячейки, что на других страницах */
+.ref-combos-grid.grid-3x3 {
+  width: 100%;
+  max-width: 720px;
+  margin: 0 auto;
+}
+
+.page--reference .grid-item-label {
+  font-size: 0.7rem;
+  line-height: 1.2;
+}
+
+.selector-wrap--required .selector-optional {
+  color: #000;
+  font-weight: 700;
+}
+
+/* ===== Служебные ===== */
+.visually-hidden {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  padding: 0;
+  margin: -1px;
+  overflow: hidden;
+  clip: rect(0, 0, 0, 0);
+  border: 0;
+}
+
+.loading-msg {
+  text-align: center;
+  padding: 2rem;
+  font-size: 0.9rem;
+  color: #333;
+}
+
+.error-msg {
+  border: 1px solid #000;
+  padding: 1rem;
+  font-size: 0.9rem;
+}
+
+/* ===== Адаптив ===== */
+@media (max-width: 768px) {
+  .home-nav .btn-pill {
+    min-width: 200px;
+    width: 100%;
+    max-width: 280px;
+  }
+
+  .custom-selectors {
+    flex-direction: row;
+    flex-wrap: nowrap;
+    justify-content: space-between;
+    gap: 0.4rem;
+    max-width: 100%;
+    padding: 0 0.25rem;
+  }
+
+  .selector-wrap {
+    flex: 1 1 0;
+    min-width: 0;
+  }
+
+  .custom-selectors .select-pill--colors {
+    min-width: 0;
+    width: 100%;
+    max-width: none;
+    font-size: 0.72rem;
+    padding: 0.45rem 1.1rem 0.45rem 0.45rem;
+  }
+
+  .selector-optional {
+    font-size: 0.62rem;
+    text-align: center;
+  }
+
+  .page-footer--actions {
+    flex-direction: column;
+    align-items: stretch;
+    gap: 0.75rem;
+  }
+
+  .page-footer--actions .btn-pill,
+  .page-footer--actions .btn-back {
+    width: 100%;
+    max-width: none;
+    min-width: 0;
+    justify-content: center;
+    box-sizing: border-box;
+  }
+
+  .grid-3x3 {
+    gap: 0.4rem;
+  }
+
+  .page--reference .grid-item-label {
+    font-size: 0.6rem;
+  }
+
+  .page--reference {
+    padding-bottom: 1rem;
+  }
+
+  .page--reference .page-footer {
+    padding-top: 1rem;
+  }
+}
+
+@media (max-width: 480px) {
+  .page {
+    padding: 1rem 0.75rem 1.5rem;
+  }
+
+  .grid-3x3 {
+    gap: 0.3rem;
+  }
+
+  .custom-selectors .select-pill--colors {
+    font-size: 0.65rem;
+    padding-right: 1rem;
+  }
+
+  .page--reference .color-description {
+    font-size: 0.8rem;
+    margin-bottom: 0.5rem;
+  }
+}

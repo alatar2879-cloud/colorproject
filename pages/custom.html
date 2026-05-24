@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Свое сочетание — COLORSELECTION</title>
+  <link rel="stylesheet" href="../css/main.css">
+</head>
+<body>
+  <div class="page">
+    <div class="custom-page">
+      <div class="custom-selectors">
+        <div class="selector-wrap">
+          <select id="color-1" class="select-pill select-pill--colors" aria-label="Цвет 1">
+            <option value="">Цвет</option>
+          </select>
+        </div>
+        <div class="selector-wrap">
+          <select id="color-2" class="select-pill select-pill--colors" aria-label="Цвет 2">
+            <option value="">Цвет</option>
+          </select>
+        </div>
+        <div class="selector-wrap" id="selector-wrap-3">
+          <span class="selector-optional" id="third-color-hint" hidden>не обязательно</span>
+          <select id="color-3" class="select-pill select-pill--colors" aria-label="Цвет 3">
+            <option value="">Цвет</option>
+          </select>
+        </div>
+      </div>
+    </div>
+
+    <footer class="page-footer page-footer--actions">
+      <button type="button" class="btn-back" onclick="history.back()">Назад</button>
+      <button type="button" id="btn-show-combo" class="btn-pill" disabled>
+        Как выглядит это сочетание
+      </button>
+    </footer>
+  </div>
+
+  <script src="../js/data-loader.js"></script>
+  <script src="../js/utils.js"></script>
+  <script src="../js/image-cell.js"></script>
+  <script src="../js/custom.js"></script>
+</body>
+</html>

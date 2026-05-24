@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Справка о цветах — COLORSELECTION</title>
+  <link rel="stylesheet" href="../css/main.css">
+</head>
+<body>
+  <div class="page page--reference page--wide">
+    <div class="reference-main reference-main--only">
+      <div class="reference-top-select">
+        <select id="ref-color-select" class="select-pill select-pill--colors" aria-label="Цвет">
+          <option value="">Цвет</option>
+        </select>
+      </div>
+
+      <p id="color-description" class="color-description"></p>
+
+      <div id="ref-combos-grid" class="ref-combos-grid">
+        <p class="loading-msg">Загрузка…</p>
+      </div>
+    </div>
+
+    <footer class="page-footer">
+      <button type="button" class="btn-back" onclick="history.back()">Назад</button>
+    </footer>
+  </div>
+
+  <script src="../js/data-loader.js"></script>
+  <script src="../js/descriptions-loader.js"></script>
+  <script src="../js/utils.js"></script>
+  <script src="../js/image-cell.js"></script>
+  <script src="../js/reference.js"></script>
+</body>
+</html>
